@@ -14,7 +14,7 @@
   "dependencies": {
     "cli-color": "^2.0.3",
     "cli-table": "^0.3.11",
-    "codeforces-sdk": "file:/home/igorjan/typescript/codeforces-sdk"
+    "codeforces-sdk": "^0.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.11.17",
