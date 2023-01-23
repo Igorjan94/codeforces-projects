@@ -1,0 +1,34 @@
+{
+  "name": "codeforces-projects",
+  "plan": "web",
+  "version": "0.0.1",
+  "description": "Codeforces.com scripts",
+  "main": "./out/cjs/index.js",
+  "module": "./out/esm/index.js",
+  "exports": {
+    ".": "./out/cjs/index.js"
+  },
+  "engines": {
+    "node": ">14.0.0"
+  },
+  "dependencies": {
+    "cli-color": "^2.0.3",
+    "cli-table": "^0.3.11",
+    "codeforces-sdk": "file:/home/igorjan/typescript/codeforces-sdk"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.17",
+    "ts-toolbelt": "^9.6.0",
+    "typescript": "^4.9.3"
+  },
+  "scripts": {
+    "buildAll": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
+    "buildEsm": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig-cjs.json"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "Igorjan94",
+  "license": "PRIVATE"
+}
