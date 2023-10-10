@@ -1,4 +1,5 @@
-import { Types, API, init } from 'codeforces-sdk'
+import { ArgumentParser } from 'argparse'
+import { Types, API } from 'codeforces-sdk'
 
 export const userInfo = async (handle: Types.Handle) => {
     const users = await API.user.info({handles: [handle]})
@@ -9,4 +10,9 @@ export const userInfo = async (handle: Types.Handle) => {
     Object.keys(user).forEach(key =>
         console.log(key, user[key])
     )
+}
+
+export const userInfoParser = (parser: ArgumentParser) => {
+    parser.add_argument('handle', { nargs: 1 })
+    return async (args) => userInfo(args.handle)
 }

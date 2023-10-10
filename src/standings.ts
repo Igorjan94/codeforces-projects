@@ -1,4 +1,5 @@
-import { Types, API, init } from 'codeforces-sdk'
+import { ArgumentParser, SUPPRESS } from 'argparse'
+import { Types, API } from 'codeforces-sdk'
 import Table from 'cli-table'
 import clc from 'cli-color'
 
@@ -34,5 +35,18 @@ export const standings = async (options: API.contest.StandingsOptions) => {
     return {
         s, 
         table,
+    }
+}
+
+export const standingsParser = (parser: ArgumentParser) => {
+    parser.add_argument('contestIds', { help: 'Contest ids', nargs: '+' })
+    parser.add_argument('-r', '--room', { type: 'int', default: SUPPRESS })
+    parser.add_argument('-f', '--from', { type: 'int', default: SUPPRESS })
+    parser.add_argument('-c', '--count', { type: 'int', default: SUPPRESS })
+    parser.add_argument('-s', '--showUnofficial', { action: 'store_true', default: SUPPRESS })
+    return async (args) => {
+        const contestIds = args.contestIds
+        delete args.contestIds
+        multipleStandings(args, contestIds)
     }
 }

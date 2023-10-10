@@ -3,20 +3,26 @@
   "plan": "web",
   "version": "0.0.1",
   "description": "Codeforces.com scripts",
-  "main": "./out/cjs/index.js",
-  "module": "./out/esm/index.js",
+  "main": "./out/cjs/src/index.js",
+  "module": "./out/esm/src/index.js",
   "exports": {
-    ".": "./out/cjs/index.js"
+    ".": "./out/cjs/src/index.js"
+  },
+  "bin": {
+    "codeforces": "./out/cjs/src/index.js"
   },
   "engines": {
     "node": ">14.0.0"
   },
   "dependencies": {
+    "argparse": "^2.0.1",
     "cli-color": "^2.0.3",
     "cli-table": "^0.3.11",
-    "codeforces-sdk": "^0.0.1"
+    "codeforces-sdk": "^0.0.3",
+    "dotenv": "^16.3.1"
   },
   "devDependencies": {
+    "@types/argparse": "^2.0.11",
     "@types/node": "^18.11.17",
     "ts-toolbelt": "^9.6.0",
     "typescript": "^4.9.3"

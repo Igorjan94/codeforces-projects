@@ -1,4 +1,5 @@
-import {Types, API, init} from 'codeforces-sdk'
+import { ArgumentParser } from 'argparse'
+import { Types, API } from 'codeforces-sdk'
 
 export const maxWrongTest = async (handle: Types.Handle) => {
     let ret: Array<Types.Submission> = []
@@ -21,4 +22,9 @@ export const maxWrongTest = async (handle: Types.Handle) => {
     ret = ret.sort((a, b) => b.passedTestCount - a.passedTestCount).slice(0, 20)
     for (const s of ret)
         console.log(s.passedTestCount, s.getLink())
+}
+
+export const maxWrongTestParser = (parser: ArgumentParser) => {
+    parser.add_argument('handle', { nargs: 1 })
+    return async (args) => maxWrongTest(args.handle)
 }
